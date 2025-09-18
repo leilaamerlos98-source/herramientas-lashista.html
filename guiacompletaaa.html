@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌸 Guía Profesional para Lashistas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Playfair Display', 'Georgia', serif;
+            background: linear-gradient(135deg, #ffffff 0%, #fafafa 25%, #f8f9fa 50%, #fff5f8 75%, #ffeef8 100%);
+            min-height: 100vh;
+            color: #2c3e50;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><radialGradient id="g" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:rgba(255,215,0,0.08)"/><stop offset="100%" style="stop-color:rgba(255,215,0,0)"/></radialGradient></defs><circle cx="20" cy="20" r="2" fill="url(%23g)"/><circle cx="80" cy="40" r="1.5" fill="url(%23g)"/><circle cx="40" cy="80" r="1" fill="url(%23g)"/><circle cx="90" cy="90" r="2.5" fill="url(%23g)"/><circle cx="10" cy="60" r="1.2" fill="url(%23g)"/></svg>') repeat;
+            animation: sparkle 20s linear infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes sparkle {
+            0% { transform: translateY(0px) rotate(0deg); }
+            100% { transform: translateY(-100px) rotate(360deg); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,240,245,0.95) 100%);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,215,0,0.3);
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #ffd700, #ff69b4, #da70d6, #ffd700);
+            border-radius: 27px;
+            z-index: -1;
+            animation: borderGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes borderGlow {
+            0% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            background: linear-gradient(45deg, #ff1493, #ffd700, #da70d6);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+            text-shadow: 0 0 30px rgba(255,20,147,0.5);
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .header p {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            font-style: italic;
+            font-weight: 500;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tab-button {
+            background: linear-gradient(45deg, #ff69b4, #ff1493, #da70d6);
+            color: white;
+            border: none;
+            padding: 18px 30px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 25px rgba(255,20,147,0.4), 0 0 0 1px rgba(255,215,0,0.2);
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .tab-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s;
+        }
+
+        .tab-button:hover::before {
+            left: 100%;
+        }
+
+        .tab-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(255,20,147,0.6), 0 0 0 1px rgba(255,215,0,0.4);
+        }
+
+        .tab-button.active {
+            background: linear-gradient(45deg, #ffd700, #ffb347, #ffa500);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(255,215,0,0.6), 0 0 20px rgba(255,215,0,0.4);
+        }
+
+        .tab-content {
+            display: none;
+            background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,248,250,0.95) 100%);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2), 0 0 0 1px rgba(255,215,0,0.2);
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            backdrop-filter: blur(15px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tab-content::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #ff69b4, #ffd700, #da70d6, #ff69b4);
+            border-radius: 27px;
+            z-index: -1;
+            opacity: 0.7;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            background: linear-gradient(45deg, #ff1493, #ffd700, #da70d6);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 30px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            font-weight: 700;
+            text-shadow: 0 0 20px rgba(255,20,147,0.3);
+            letter-spacing: 1px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .form-row > * {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 1.1rem;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid transparent;
+            background: linear-gradient(white, white) padding-box, linear-gradient(45deg, #ff69b4, #ffd700) border-box;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            background: linear-gradient(white, white) padding-box, linear-gradient(45deg, #ffd700, #ff1493) border-box;
+            box-shadow: 0 8px 25px rgba(255,20,147,0.3), 0 0 0 3px rgba(255,215,0,0.2);
+            transform: translateY(-2px);
+        }
+
+        .financial-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: #ffeef8;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .financial-table th {
+            background: linear-gradient(45deg, #ff69b4, #ff1493);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .financial-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ff69b4;
+        }
+
+        .financial-table tr:hover {
+            background: #fff0f8;
+        }
+
+        .total-row {
+            background: linear-gradient(45deg, #34495e, #2c3e50);
+            color: white;
+            font-weight: bold;
+        }
+
+        .checklist {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .checklist-section {
+            background: #ffeef8;
+            padding: 20px;
+            border-radius: 15px;
+            border: 2px solid #ff69b4;
+        }
+
+        .checklist-section h4 {
+            color: #ff1493;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            padding: 8px;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .checkbox-item:hover {
+            background: #fff0f8;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+            transform: scale(1.2);
+        }
+
+        .affirmation-card {
+            background: linear-gradient(135deg, #ff69b4, #ff1493);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 15px 0;
+            box-shadow: 0 5px 15px rgba(255,20,147,0.3);
+            text-align: center;
+            font-size: 1.1rem;
+            font-style: italic;
+        }
+
+        .agenda-slot {
+            background: #ffeef8;
+            border: 2px solid #ff69b4;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+
+        .agenda-time {
+            background: linear-gradient(45deg, #ff69b4, #ff1493);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .goals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .goal-section {
+            background: #ffeef8;
+            padding: 20px;
+            border-radius: 15px;
+            border: 2px solid #ff69b4;
+        }
+
+        .save-btn {
+            background: linear-gradient(45deg, #ffd700, #ffb347, #ffa500);
+            color: #2c3e50;
+            border: none;
+            padding: 18px 35px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin: 25px 15px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 25px rgba(255,215,0,0.4), 0 0 0 1px rgba(255,215,0,0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .save-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.6s;
+        }
+
+        .save-btn:hover::before {
+            left: 100%;
+        }
+
+        .save-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(255,215,0,0.6), 0 0 20px rgba(255,215,0,0.4);
+        }
+
+        .tip-box {
+            background: linear-gradient(135deg, #ffd700, #ffb347);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #ff8c00;
+        }
+
+        .tip-box strong {
+            color: #8b4513;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .form-row {
+                flex-direction: column;
+            }
+            
+            .form-row > * {
+                min-width: auto;
+            }
+            
+            .tabs {
+                flex-direction: column;
+            }
+            
+            .tab-button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌸 GUÍA PROFESIONAL PARA LASHISTAS</h1>
+            <p>Herramientas de organización y crecimiento personal</p>
+        </div>
+
+        <div class="tabs">
+            <button class="tab-button active" onclick="showTab('financial')">💰 Control Financiero</button>
+            <button class="tab-button" onclick="showTab('checklist')">✅ Checklist Semanal</button>
+            <button class="tab-button" onclick="showTab('affirmations')">💎 Afirmaciones</button>
+            <button class="tab-button" onclick="showTab('agenda')">📅 Agenda Diaria</button>
+            <button class="tab-button" onclick="showTab('mindset')">🧠 Mentalidad</button>
+        </div>
+
+        <!-- Control Financiero -->
+        <div id="financial" class="tab-content active">
+            <h2 class="section-title">💰 Control Financiero Semanal</h2>
+            
+            <div class="form-row">
+                <div>
+                    <label>Nombre:</label>
+                    <input type="text" id="userName" placeholder="Tu nombre">
+                </div>
+                <div>
+                    <label>Mi negocio:</label>
+                    <input type="text" id="businessName" placeholder="Nombre de tu negocio">
+                </div>
+                <div>
+                    <label>Semana del:</label>
+                    <input type="date" id="weekStart">
+                </div>
+            </div>
+
+            <table class="financial-table">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Servicio Realizado</th>
+                        <th>Ingreso</th>
+                        <th>Gastos</th>
+                        <th>Balance</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody id="financialTableBody">
+                    <!-- Rows will be added dynamically -->
+                </tbody>
+                <tfoot>
+                    <tr class="total-row">
+                        <td colspan="2"><strong>TOTAL SEMANAL</strong></td>
+                        <td id="totalIncome"><strong>$0</strong></td>
+                        <td id="totalExpenses"><strong>$0</strong></td>
+                        <td id="totalBalance"><strong>$0</strong></td>
+                        <td></td>
+                    </tr>
+                </tfoot>
+            </table>
+
+            <button onclick="addFinancialRow()" class="save-btn">➕ Agregar Registro</button>
+            <button onclick="saveFinancialData()" class="save-btn">💾 Guardar Datos</button>
+
+            <div class="tip-box">
+                <strong>💡 Tip:</strong> Anota cada servicio inmediatamente después de realizarlo para no olvidar ningún ingreso.
+            </div>
+        </div>
+
+        <!-- Checklist Semanal -->
+        <div id="checklist" class="tab-content">
+            <h2 class="section-title">✅ Checklist Semanal de Organización</h2>
+            
+            <div class="form-group">
+                <label>Semana del:</label>
+                <input type="date" id="checklistWeek">
+            </div>
+
+            <div class="checklist">
+                <div class="checklist-section">
+                    <h4>📊 Administración</h4>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="admin1">
+                        <label for="admin1">Anoté todos mis ingresos y gastos</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="admin2">
+                        <label for="admin2">Revisé mi inventario de productos</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="admin3">
+                        <label for="admin3">Organicé mis facturas y recibos</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="admin4">
+                        <label for="admin4">Planifiqué mis compras de insumos</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="admin5">
+                        <label for="admin5">Actualicé mi agenda de clientes</label>
+                    </div>
+                </div>
+
+                <div class="checklist-section">
+                    <h4>📱 Marketing</h4>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="marketing1">
+                        <label for="marketing1">Publiqué contenido en Instagram</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="marketing2">
+                        <label for="marketing2">Respondí mensajes de clientes</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="marketing3">
+                        <label for="marketing3">Tomé fotos de mis trabajos</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="marketing4">
+                        <label for="marketing4">Actualicé mis historias destacadas</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="marketing5">
+                        <label for="marketing5">Interactué con otras lashistas</label>
+                    </div>
+                </div>
+
+                <div class="checklist-section">
+                    <h4>🎯 Metas Personales</h4>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="goals1">
+                        <label for="goals1">Trabajé en mis metas financieras</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="goals2">
+                        <label for="goals2">Practiqué nuevas técnicas</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="goals3">
+                        <label for="goals3">Leí sobre tendencias del sector</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="goals4">
+                        <label for="goals4">Cuidé mi bienestar personal</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="goals5">
+                        <label for="goals5">Reflexioné sobre mi progreso</label>
+                    </div>
+                </div>
+            </div>
+
+            <button onclick="saveChecklistData()" class="save-btn">💾 Guardar Checklist</button>
+        </div>
+
+        <!-- Afirmaciones -->
+        <div id="affirmations" class="tab-content">
+            <h2 class="section-title">💎 Tarjetas de Afirmaciones Diarias</h2>
+            <p style="text-align: center; margin-bottom: 20px; font-style: italic; color: #34495e;">
+                Lee estas afirmaciones cada mañana para fortalecer tu mentalidad de éxito:
+            </p>
+
+            <div class="affirmation-card">
+                "Mi talento atrae clientes que valoran mi trabajo y pagan lo justo"
+            </div>
+            <div class="affirmation-card">
+                "Cada día crezco y mejoro como lashista profesional"
+            </div>
+            <div class="affirmation-card">
+                "Soy capaz de crear abundancia y prosperidad con mi arte"
+            </div>
+            <div class="affirmation-card">
+                "Merezco el éxito y trabajo con confianza hacia mis metas"
+            </div>
+
+            <h3 style="color: #ff1493; margin: 30px 0 15px 0;">✨ Mis Afirmaciones Personales:</h3>
+            <div class="form-group">
+                <label>1.</label>
+                <textarea id="personalAffirmation1" rows="2" placeholder="Escribe tu primera afirmación personal..."></textarea>
+            </div>
+            <div class="form-group">
+                <label>2.</label>
+                <textarea id="personalAffirmation2" rows="2" placeholder="Escribe tu segunda afirmación personal..."></textarea>
+            </div>
+            <div class="form-group">
+                <label>3.</label>
+                <textarea id="personalAffirmation3" rows="2" placeholder="Escribe tu tercera afirmación personal..."></textarea>
+            </div>
+
+            <button onclick="saveAffirmations()" class="save-btn">💾 Guardar Afirmaciones</button>
+        </div>
+
+        <!-- Agenda Diaria -->
+        <div id="agenda" class="tab-content">
+            <h2 class="section-title">📅 Agenda Diaria de Clientes</h2>
+            
+            <div class="form-row">
+                <div>
+                    <label>Fecha:</label>
+                    <input type="date" id="agendaDate">
+                </div>
+                <div>
+                    <label>Día:</label>
+                    <input type="text" id="agendaDay" readonly>
+                </div>
+            </div>
+
+            <div id="agendaSlots">
+                <!-- Agenda slots will be generated here -->
+            </div>
+
+            <button onclick="saveAgendaData()" class="save-btn">💾 Guardar Agenda</button>
+        </div>
+
+        <!-- Mentalidad y Crecimiento -->
+        <div id="mindset" class="tab-content">
+            <h2 class="section-title">🧠 Ejercicios de Mentalidad y Crecimiento</h2>
+
+            <div class="goals-grid">
+                <div class="goal-section">
+                    <h4 style="color: #ff1493; margin-bottom: 15px;">💭 Mis Razones para ser Lashista</h4>
+                    <p style="margin-bottom: 15px; color: #34495e;">¿Por qué elegiste este camino? Conecta con tu propósito:</p>
+                    <div class="form-group">
+                        <label>1.</label>
+                        <textarea id="reason1" rows="2" placeholder="Primera razón..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>2.</label>
+                        <textarea id="reason2" rows="2" placeholder="Segunda razón..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>3.</label>
+                        <textarea id="reason3" rows="2" placeholder="Tercera razón..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>4.</label>
+                        <textarea id="reason4" rows="2" placeholder="Cuarta razón..."></textarea>
+                    </div>
+                </div>
+
+                <div class="goal-section">
+                    <h4 style="color: #ff1493; margin-bottom: 15px;">🔮 Mi Visión en 1 Año</h4>
+                    <p style="margin-bottom: 15px; color: #34495e;">Visualiza tu futuro y trabaja hacia él:</p>
+                    <div class="form-group">
+                        <label>¿Cómo me veo profesionalmente?</label>
+                        <textarea id="vision1" rows="2"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>¿Cuántos clientes fijos tengo?</label>
+                        <textarea id="vision2" rows="2"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>¿Qué logros he alcanzado?</label>
+                        <textarea id="vision3" rows="2"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>¿Cómo me siento con mi negocio?</label>
+                        <textarea id="vision4" rows="2"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="goals-grid">
+                <div class="goal-section">
+                    <h4 style="color: #ff1493; margin-bottom: 15px;">🎯 Mis Metas del Mes</h4>
+                    <h5 style="color: #34495e; margin-bottom: 10px;">💰 Financieras</h5>
+                    <div class="form-group">
+                        <textarea id="financialGoals" rows="3" placeholder="• Meta 1&#10;• Meta 2&#10;• Meta 3"></textarea>
+                    </div>
+                    <h5 style="color: #34495e; margin-bottom: 10px;">📈 Profesionales</h5>
+                    <div class="form-group">
+                        <textarea id="professionalGoals" rows="3" placeholder="• Meta 1&#10;• Meta 2&#10;• Meta 3"></textarea>
+                    </div>
+                </div>
+
+                <div class="goal-section">
+                    <h4 style="color: #ff1493; margin-bottom: 15px;">📝 Reflexión Semanal</h4>
+                    <div class="form-group">
+                        <label>¿Qué logré esta semana?</label>
+                        <textarea id="weeklyAchievements" rows="2"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>¿Qué desafíos enfrenté y cómo los superé?</label>
+                        <textarea id="weeklyChallenges" rows="2"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>¿Qué voy a mejorar la próxima semana?</label>
+                        <textarea id="weeklyImprovements" rows="2"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="goal-section" style="margin-top: 20px;">
+                <h4 style="color: #ff1493; margin-bottom: 15px;">📋 Notas y Recordatorios</h4>
+                <textarea id="notes" rows="5" placeholder="Escribe aquí tus notas, ideas y recordatorios importantes..."></textarea>
+            </div>
+
+            <button onclick="saveMindsetData()" class="save-btn">💾 Guardar Reflexiones</button>
+
+            <div class="tip-box" style="margin-top: 30px;">
+                <strong>💡 Recuerda:</strong> El éxito como lashista no solo se mide en ingresos, sino en la satisfacción de tus clientes, tu crecimiento personal y la pasión que pones en cada trabajo. ¡Tú puedes lograr todo lo que te propongas! 🌟
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab functionality
+        function showTab(tabName) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => content.classList.remove('active'));
+            
+            // Remove active class from all buttons
+            const tabButtons = document.querySelectorAll('.tab-button');
+            tabButtons.forEach(button => button.classList.remove('active'));
+            
+            // Show selected tab and activate button
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // Financial tracking functionality
+        let financialData = [];
+
+        function addFinancialRow() {
+            const tableBody = document.getElementById('financialTableBody');
+            const rowIndex = financialData.length;
+            
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td><input type="date" onchange="updateFinancialData(${rowIndex}, 'date', this.value)"></td>
+                <td><input type="text" placeholder="Extensiones de pestañas" onchange="updateFinancialData(${rowIndex}, 'service', this.value)"></td>
+                <td><input type="number" placeholder="0" onchange="updateFinancialData(${rowIndex}, 'income', this.value)"></td>
+                <td><input type="number" placeholder="0" onchange="updateFinancialData(${rowIndex}, 'expenses', this.value)"></td>
+                <td class="balance-cell">$0</td>
+                <td><button onclick="removeFinancialRow(${rowIndex})" style="background: #ff4444; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer;">🗑️</button></td>
+            `;
+            
+            tableBody.appendChild(row);
+            financialData.push({ date: '', service: '', income: 0, expenses: 0, balance: 0 });
+        }
+
+        function updateFinancialData(index, field, value) {
+            if (field === 'income' || field === 'expenses') {
+                value = parseFloat(value) || 0;
+            }
+            
+            financialData[index][field] = value;
+            financialData[index].balance = financialData[index].income - financialData[index].expenses;
+            
+            // Update balance display
+            const row = document.getElementById('financialTableBody').children[index];
+            const balanceCell = row.querySelector('.balance-cell');
+            balanceCell.textContent = `$${financialData[index].balance.toFixed(2)}`;
+            
+            updateTotals();
+        }
+
+        function removeFinancialRow(index) {
+            financialData.splice(index, 1);
+            const tableBody = document.getElementById('financialTableBody');
+            tableBody.removeChild(tableBody.children[index]);
+            
+            // Re-render all rows to update indices
+            renderFinancialTable();
+        }
+
+        function renderFinancialTable() {
+            const tableBody = document.getElementById('financialTableBody');
+            tableBody.innerHTML = '';
+            
+            financialData.forEach((data, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td><input type="date" value="${data.date}" onchange="updateFinancialData(${index}, 'date', this.value)"></td>
+                    <td><input type="text" value="${data.service}" placeholder="Extensiones de pestañas" onchange="updateFinancialData(${index}, 'service', this.value)"></td>
+                    <td><input type="number" value="${data.income}" placeholder="0" onchange="updateFinancialData(${index}, 'income', this.value)"></td>
+                    <td><input type="number" value="${data.expenses}" placeholder="0" onchange="updateFinancialData(${index}, 'expenses', this.value)"></td>
+                    <td class="balance-cell">$${data.balance.toFixed(2)}</td>
+                    <td><button onclick="removeFinancialRow(${index})" style="background: #ff4444; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer;">🗑️</button></td>
+                `;
+                tableBody.appendChild(row);
+            });
+            
+            updateTotals();
+        }
+
+        function updateTotals() {
+            const totalIncome = financialData.reduce((sum, item) => sum + item.income, 0);
+            const totalExpenses = financialData.reduce((sum, item) => sum + item.expenses, 0);
+            const totalBalance = totalIncome - totalExpenses;
+            
+            document.getElementById('totalIncome').innerHTML = `<strong>$${totalIncome.toFixed(2)}</strong>`;
+            document.getElementById('totalExpenses').innerHTML = `<strong>$${totalExpenses.toFixed(2)}</strong>`;
+            document.getElementById('totalBalance').innerHTML = `<strong>$${totalBalance.toFixed(2)}</strong>`;
+        }
+
+        // Agenda functionality
+        function generateAgendaSlots() {
+            const agendaSlots = document.getElementById('agendaSlots');
+            const times = ['9:00', '11:00', '13:00', '15:00', '17:00'];
+            
+            agendaSlots.innerHTML = '';
+            
+            times.forEach(time => {
+                const slot = document.createElement('div');
+                slot.className = 'agenda-slot';
+                slot.innerHTML = `
+                    <div class="agenda-time">${time}</div>
+                    <div class="form-row">
+                        <div>
+                            <label>Cliente:</label>
+                            <input type="text" placeholder="Nombre del cliente">
+                        </div>
+                        <div>
+                            <label>Servicio:</label>
+                            <input type="text" placeholder="Tipo de servicio">
+                        </div>
+                        <div>
+                            <label>Tel:</label>
+                            <input type="tel" placeholder="Teléfono">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Notas:</label>
+                        <textarea rows="2" placeholder="Notas especiales del cliente..."></textarea>
+                    </div>
+                `;
+                agendaSlots.appendChild(slot);
+            });
+        }
+
+        // Update day when date changes
+        document.getElementById('agendaDate').addEventListener('change', function() {
+            const date = new Date(this.value);
+            const days = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+            document.getElementById('agendaDay').value = days[date.getDay()];
+        });
+
+        // Save functions
+        function saveFinancialData() {
+            const data = {
+                userName: document.getElementById('userName').value,
+                businessName: document.getElementById('businessName').value,
+                weekStart: document.getElementById('weekStart').value,
+                financialData: financialData
+            };
+            
+            localStorage.setItem('lashista_financial', JSON.stringify(data));
+            alert('💾 Datos financieros guardados exitosamente!');
+        }
+
+        function saveChecklistData() {
+            const checkboxes = document.querySelectorAll('#checklist input[type="checkbox"]');
+            const checklistData = {};
+            
+            checkboxes.forEach(checkbox => {
+                checklistData[checkbox.id] = checkbox.checked;
+            });
+            
+            checklistData.week = document.getElementById('checklistWeek').value;
+            
+            localStorage.setItem('lashista_checklist', JSON.stringify(checklistData));
+            alert('✅ Checklist guardado exitosamente!');
+        }
+
+        function saveAffirmations() {
+            const affirmations = {
+                personal1: document.getElementById('personalAffirmation1').value,
+                personal2: document.getElementById('personalAffirmation2').value,
+                personal3: document.getElementById('personalAffirmation3').value
+            };
+            
+            localStorage.setItem('lashista_affirmations', JSON.stringify(affirmations));
+            alert('💎 Afirmaciones guardadas exitosamente!');
+        }
+
+        function saveAgendaData() {
+            const agendaSlots = document.querySelectorAll('.agenda-slot');
+            const agendaData = {
+                date: document.getElementById('agendaDate').value,
+                day: document.getElementById('agendaDay').value,
+                slots: []
+            };
+            
+            agendaSlots.forEach((slot, index) => {
+                const inputs = slot.querySelectorAll('input, textarea');
+                const slotData = {
+                    time: slot.querySelector('.agenda-time').textContent,
+                    client: inputs[0].value,
+                    service: inputs[1].value,
+                    phone: inputs[2].value,
+                    notes: inputs[3].value
+                };
+                agendaData.slots.push(slotData);
+            });
+            
+            localStorage.setItem('lashista_agenda', JSON.stringify(agendaData));
+            alert('📅 Agenda guardada exitosamente!');
+        }
+
+        function saveMindsetData() {
+            const mindsetData = {
+                reasons: [
+                    document.getElementById('reason1').value,
+                    document.getElementById('reason2').value,
+                    document.getElementById('reason3').value,
+                    document.getElementById('reason4').value
+                ],
+                vision: [
+                    document.getElementById('vision1').value,
+                    document.getElementById('vision2').value,
+                    document.getElementById('vision3').value,
+                    document.getElementById('vision4').value
+                ],
+                financialGoals: document.getElementById('financialGoals').value,
+                professionalGoals: document.getElementById('professionalGoals').value,
+                weeklyAchievements: document.getElementById('weeklyAchievements').value,
+                weeklyChallenges: document.getElementById('weeklyChallenges').value,
+                weeklyImprovements: document.getElementById('weeklyImprovements').value,
+                notes: document.getElementById('notes').value
+            };
+            
+            localStorage.setItem('lashista_mindset', JSON.stringify(mindsetData));
+            alert('🧠 Reflexiones guardadas exitosamente!');
+        }
+
+        // Load saved data on page load
+        function loadSavedData() {
+            // Load financial data
+            const savedFinancial = localStorage.getItem('lashista_financial');
+            if (savedFinancial) {
+                const data = JSON.parse(savedFinancial);
+                document.getElementById('userName').value = data.userName || '';
+                document.getElementById('businessName').value = data.businessName || '';
+                document.getElementById('weekStart').value = data.weekStart || '';
+                financialData = data.financialData || [];
+                renderFinancialTable();
+            }
+            
+            // Load checklist data
+            const savedChecklist = localStorage.getItem('lashista_checklist');
+            if (savedChecklist) {
+                const data = JSON.parse(savedChecklist);
+                document.getElementById('checklistWeek').value = data.week || '';
+                
+                Object.keys(data).forEach(key => {
+                    if (key !== 'week') {
+                        const checkbox = document.getElementById(key);
+                        if (checkbox) checkbox.checked = data[key];
+                    }
+                });
+            }
+            
+            // Load affirmations
+            const savedAffirmations = localStorage.getItem('lashista_affirmations');
+            if (savedAffirmations) {
+                const data = JSON.parse(savedAffirmations);
+                document.getElementById('personalAffirmation1').value = data.personal1 || '';
+                document.getElementById('personalAffirmation2').value = data.personal2 || '';
+                document.getElementById('personalAffirmation3').value = data.personal3 || '';
+            }
+            
+            // Load mindset data
+            const savedMindset = localStorage.getItem('lashista_mindset');
+            if (savedMindset) {
+                const data = JSON.parse(savedMindset);
+                
+                if (data.reasons) {
+                    document.getElementById('reason1').value = data.reasons[0] || '';
+                    document.getElementById('reason2').value = data.reasons[1] || '';
+                    document.getElementById('reason3').value = data.reasons[2] || '';
+                    document.getElementById('reason4').value = data.reasons[3] || '';
+                }
+                
+                if (data.vision) {
+                    document.getElementById('vision1').value = data.vision[0] || '';
+                    document.getElementById('vision2').value = data.vision[1] || '';
+                    document.getElementById('vision3').value = data.vision[2] || '';
+                    document.getElementById('vision4').value = data.vision[3] || '';
+                }
+                
+                document.getElementById('financialGoals').value = data.financialGoals || '';
+                document.getElementById('professionalGoals').value = data.professionalGoals || '';
+                document.getElementById('weeklyAchievements').value = data.weeklyAchievements || '';
+                document.getElementById('weeklyChallenges').value = data.weeklyChallenges || '';
+                document.getElementById('weeklyImprovements').value = data.weeklyImprovements || '';
+                document.getElementById('notes').value = data.notes || '';
+            }
+        }
+
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', function() {
+            generateAgendaSlots();
+            loadSavedData();
+            
+            // Set today's date as default
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('agendaDate').value = today;
+            document.getElementById('agendaDate').dispatchEvent(new Event('change'));
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'980df425543ba796',t:'MTc1ODE2ODIwOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
