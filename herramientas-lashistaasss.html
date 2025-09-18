@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herramientas para Lashistas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #ffeef7 0%, #fff0f8 100%);
+            padding: 15px;
+            color: #000000;
+            line-height: 1.5;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 25px 20px;
+            background: #ffffff;
+            border: 2px solid #FF1493;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(255,20,147,0.1);
+        }
+        
+        .header h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #FF1493;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            color: #666666;
+            font-size: 0.95rem;
+        }
+        
+        .tool-section {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        
+        .tool-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #FF1493;
+        }
+        
+        .tool-icon {
+            font-size: 1.5rem;
+            margin-right: 12px;
+            color: #FF1493;
+        }
+        
+        .tool-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #000000;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .form-group {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333333;
+            font-weight: 500;
+            font-size: 0.85rem;
+        }
+        
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 10px 12px;
+            background: #ffffff;
+            border: 1px solid #d0d0d0;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            color: #000000;
+            font-family: inherit;
+            transition: all 0.2s ease;
+        }
+        
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            outline: none;
+            border-color: #FF1493;
+            box-shadow: 0 0 0 2px rgba(255,20,147,0.1);
+        }
+        
+        .btn {
+            background: #FF1493;
+            color: #ffffff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            width: 100%;
+            font-family: inherit;
+            margin-bottom: 15px;
+            transition: all 0.2s ease;
+        }
+        
+        .btn:hover {
+            background: #e6127a;
+            transform: translateY(-1px);
+        }
+        
+        .preview-box {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+        
+        .preview-title {
+            color: #FF1493;
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+        }
+        
+        .simple-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        
+        .simple-table th, .simple-table td {
+            padding: 10px 12px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 0.85rem;
+        }
+        
+        .simple-table th {
+            background: #FF1493;
+            color: #ffffff;
+            font-weight: 600;
+        }
+        
+        .simple-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .result-text {
+            font-size: 0.9rem;
+            color: #333333;
+            line-height: 1.6;
+        }
+        
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 500;
+        }
+        
+        @media (max-width: 600px) {
+            .form-row {
+                flex-direction: column;
+            }
+            
+            .form-group {
+                min-width: 100%;
+            }
+            
+            .header h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>💄 Herramientas para Lashistas</h1>
+            <p>Calculadoras y herramientas profesionales para técnicos en extensiones de pestañas</p>
+        </div>
+
+        <!-- Calculadora de Precios -->
+        <div class="tool-section">
+            <div class="tool-header">
+                <span class="tool-icon">💰</span>
+                <h2 class="tool-title">Calculadora de Precios</h2>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="serviceType">Tipo de Servicio</label>
+                    <select id="serviceType">
+                        <option value="clasico">Clásico</option>
+                        <option value="volumen">Volumen</option>
+                        <option value="hibrido">Híbrido</option>
+                        <option value="mega">Mega Volumen</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="baseCost">Costo Base ($)</label>
+                    <input type="number" id="baseCost" placeholder="50" value="50" min="0" step="0.01">
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="materials">Costo Materiales ($)</label>
+                    <input type="number" id="materials" placeholder="15" value="15" min="0" step="0.01">
+                </div>
+                <div class="form-group">
+                    <label for="profit">Ganancia Deseada (%)</label>
+                    <input type="number" id="profit" placeholder="40" value="40" min="0" max="100" step="1">
+                </div>
+            </div>
+            
+            <button class="btn" onclick="calculatePrice()">Calcular Precio Final</button>
+            
+            <div class="preview-box" id="priceResult" style="display: none;">
+                <div class="preview-title">Resultado del Cálculo</div>
+                <div class="result-text" id="priceText"></div>
+            </div>
+        </div>
+
+        <!-- Calculadora de Tiempo -->
+        <div class="tool-section">
+            <div class="tool-header">
+                <span class="tool-icon">⏰</span>
+                <h2 class="tool-title">Calculadora de Tiempo de Servicio</h2>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="lashCount">Número de Pestañas por Ojo</label>
+                    <input type="number" id="lashCount" placeholder="120" value="120" min="1">
+                </div>
+                <div class="form-group">
+                    <label for="timePerLash">Tiempo por Pestaña (segundos)</label>
+                    <input type="number" id="timePerLash" placeholder="30" value="30" min="1">
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="prepTime">Tiempo de Preparación (min)</label>
+                    <input type="number" id="prepTime" placeholder="15" value="15" min="0">
+                </div>
+                <div class="form-group">
+                    <label for="finishTime">Tiempo de Finalización (min)</label>
+                    <input type="number" id="finishTime" placeholder="10" value="10" min="0">
+                </div>
+            </div>
+            
+            <button class="btn" onclick="calculateTime()">Calcular Tiempo Total</button>
+            
+            <div class="preview-box" id="timeResult" style="display: none;">
+                <div class="preview-title">Tiempo Estimado</div>
+                <div class="result-text" id="timeText"></div>
+            </div>
+        </div>
+
+        <!-- Registro de Clientes -->
+        <div class="tool-section">
+            <div class="tool-header">
+                <span class="tool-icon">👥</span>
+                <h2 class="tool-title">Registro de Clientes</h2>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="clientName">Nombre del Cliente</label>
+                    <input type="text" id="clientName" placeholder="María García">
+                </div>
+                <div class="form-group">
+                    <label for="clientPhone">Teléfono</label>
+                    <input type="tel" id="clientPhone" placeholder="+1 234 567 8900">
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="serviceDate">Fecha del Servicio</label>
+                    <input type="date" id="serviceDate">
+                </div>
+                <div class="form-group">
+                    <label for="serviceProvided">Servicio Realizado</label>
+                    <select id="serviceProvided">
+                        <option value="clasico">Clásico</option>
+                        <option value="volumen">Volumen</option>
+                        <option value="hibrido">Híbrido</option>
+                        <option value="retoque">Retoque</option>
+                        <option value="remocion">Remoción</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="clientNotes">Notas del Cliente</label>
+                <textarea id="clientNotes" rows="3" placeholder="Alergias, preferencias, observaciones..."></textarea>
+            </div>
+            
+            <button class="btn" onclick="addClient()">Agregar Cliente</button>
+            
+            <div class="preview-box" id="clientsTable" style="display: none;">
+                <div class="preview-title">Clientes Registrados</div>
+                <table class="simple-table">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Teléfono</th>
+                            <th>Último Servicio</th>
+                            <th>Fecha</th>
+                        </tr>
+                    </thead>
+                    <tbody id="clientsTableBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Calculadora de Materiales -->
+        <div class="tool-section">
+            <div class="tool-header">
+                <span class="tool-icon">📦</span>
+                <h2 class="tool-title">Calculadora de Materiales</h2>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="clientsPerMonth">Clientes por Mes</label>
+                    <input type="number" id="clientsPerMonth" placeholder="20" value="20" min="1">
+                </div>
+                <div class="form-group">
+                    <label for="lashesPerClient">Pestañas por Cliente</label>
+                    <input type="number" id="lashesPerClient" placeholder="240" value="240" min="1">
+                </div>
+            </div>
+            
+            <button class="btn" onclick="calculateMaterials()">Calcular Materiales Necesarios</button>
+            
+            <div class="preview-box" id="materialsResult" style="display: none;">
+                <div class="preview-title">Materiales Mensuales Estimados</div>
+                <table class="simple-table">
+                    <thead>
+                        <tr>
+                            <th>Material</th>
+                            <th>Cantidad</th>
+                            <th>Unidad</th>
+                        </tr>
+                    </thead>
+                    <tbody id="materialsTableBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Array para almacenar clientes
+        let clients = [];
+
+        // Calculadora de Precios - VERSIÓN MEJORADA
+        function calculatePrice() {
+            console.log('Calculando precio...'); // Para debug
+            
+            try {
+                // Obtener valores de los campos
+                const serviceType = document.getElementById('serviceType').value;
+                const baseCostInput = document.getElementById('baseCost').value;
+                const materialsInput = document.getElementById('materials').value;
+                const profitInput = document.getElementById('profit').value;
+                
+                console.log('Valores obtenidos:', { serviceType, baseCostInput, materialsInput, profitInput });
+                
+                // Convertir a números y validar
+                const baseCost = parseFloat(baseCostInput) || 0;
+                const materials = parseFloat(materialsInput) || 0;
+                const profit = parseFloat(profitInput) || 0;
+                
+                // Validar que los valores sean positivos
+                if (baseCost <= 0) {
+                    alert('Por favor ingresa un costo base válido mayor a 0');
+                    return;
+                }
+                
+                // Calcular precios
+                const totalCost = baseCost + materials;
+                const profitAmount = (totalCost * profit) / 100;
+                const finalPrice = totalCost + profitAmount;
+                
+                console.log('Cálculos:', { totalCost, profitAmount, finalPrice });
+                
+                // Nombres de servicios
+                const serviceNames = {
+                    'clasico': 'Clásico',
+                    'volumen': 'Volumen',
+                    'hibrido': 'Híbrido',
+                    'mega': 'Mega Volumen'
+                };
+                
+                // Mostrar resultado
+                const resultElement = document.getElementById('priceText');
+                if (!resultElement) {
+                    console.error('No se encontró el elemento priceText');
+                    return;
+                }
+                
+                resultElement.innerHTML = `
+                    <strong>🎯 Servicio:</strong> ${serviceNames[serviceType]}<br>
+                    <strong>💵 Costo Base:</strong> $${baseCost.toFixed(2)}<br>
+                    <strong>🛠️ Materiales:</strong> $${materials.toFixed(2)}<br>
+                    <strong>📊 Costo Total:</strong> $${totalCost.toFixed(2)}<br>
+                    <strong>📈 Ganancia (${profit}%):</strong> $${profitAmount.toFixed(2)}<br>
+                    <strong class="highlight">💰 Precio Final Sugerido: $${finalPrice.toFixed(2)}</strong>
+                `;
+                
+                // Mostrar la caja de resultado
+                const resultBox = document.getElementById('priceResult');
+                if (resultBox) {
+                    resultBox.style.display = 'block';
+                    // Scroll suave hacia el resultado
+                    resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+                
+                console.log('Resultado mostrado correctamente');
+                
+            } catch (error) {
+                console.error('Error en calculatePrice:', error);
+                alert('Hubo un error al calcular el precio. Por favor verifica los datos ingresados.');
+            }
+        }
+
+        // Calculadora de Tiempo
+        function calculateTime() {
+            const lashCount = parseInt(document.getElementById('lashCount').value) || 0;
+            const timePerLash = parseInt(document.getElementById('timePerLash').value) || 0;
+            const prepTime = parseInt(document.getElementById('prepTime').value) || 0;
+            const finishTime = parseInt(document.getElementById('finishTime').value) || 0;
+            
+            const applicationTime = (lashCount * 2 * timePerLash) / 60; // 2 ojos, convertir a minutos
+            const totalTime = applicationTime + prepTime + finishTime;
+            
+            const hours = Math.floor(totalTime / 60);
+            const minutes = Math.round(totalTime % 60);
+            
+            document.getElementById('timeText').innerHTML = `
+                <strong>⏱️ Tiempo de Preparación:</strong> ${prepTime} min<br>
+                <strong>✨ Tiempo de Aplicación:</strong> ${applicationTime.toFixed(0)} min<br>
+                <strong>🎨 Tiempo de Finalización:</strong> ${finishTime} min<br>
+                <strong class="highlight">⏰ Tiempo Total Estimado: ${hours}h ${minutes}min</strong>
+            `;
+            
+            document.getElementById('timeResult').style.display = 'block';
+        }
+
+        // Registro de Clientes
+        function addClient() {
+            const name = document.getElementById('clientName').value.trim();
+            const phone = document.getElementById('clientPhone').value.trim();
+            const date = document.getElementById('serviceDate').value;
+            const service = document.getElementById('serviceProvided').value;
+            const notes = document.getElementById('clientNotes').value.trim();
+            
+            if (!name || !phone || !date) {
+                alert('Por favor completa los campos obligatorios: Nombre, Teléfono y Fecha');
+                return;
+            }
+            
+            const serviceNames = {
+                'clasico': 'Clásico',
+                'volumen': 'Volumen',
+                'hibrido': 'Híbrido',
+                'retoque': 'Retoque',
+                'remocion': 'Remoción'
+            };
+            
+            const client = {
+                name: name,
+                phone: phone,
+                date: date,
+                service: serviceNames[service],
+                notes: notes
+            };
+            
+            clients.push(client);
+            updateClientsTable();
+            
+            // Limpiar formulario
+            document.getElementById('clientName').value = '';
+            document.getElementById('clientPhone').value = '';
+            document.getElementById('serviceDate').value = '';
+            document.getElementById('clientNotes').value = '';
+            
+            alert('¡Cliente agregado exitosamente!');
+        }
+
+        function updateClientsTable() {
+            const tableBody = document.getElementById('clientsTableBody');
+            tableBody.innerHTML = '';
+            
+            clients.forEach(client => {
+                const row = tableBody.insertRow();
+                row.innerHTML = `
+                    <td>${client.name}</td>
+                    <td>${client.phone}</td>
+                    <td>${client.service}</td>
+                    <td>${new Date(client.date).toLocaleDateString('es-ES')}</td>
+                `;
+            });
+            
+            document.getElementById('clientsTable').style.display = 'block';
+        }
+
+        // Calculadora de Materiales
+        function calculateMaterials() {
+            const clientsPerMonth = parseInt(document.getElementById('clientsPerMonth').value) || 0;
+            const lashesPerClient = parseInt(document.getElementById('lashesPerClient').value) || 0;
+            
+            if (clientsPerMonth <= 0 || lashesPerClient <= 0) {
+                alert('Por favor ingresa valores válidos mayores a 0');
+                return;
+            }
+            
+            const totalLashes = clientsPerMonth * lashesPerClient;
+            
+            const materials = [
+                { name: '🎯 Pestañas Individuales', quantity: Math.ceil(totalLashes / 1000), unit: 'bandejas (1000 pcs)' },
+                { name: '🧪 Pegamento', quantity: Math.ceil(clientsPerMonth / 15), unit: 'frascos (15ml)' },
+                { name: '✨ Primer', quantity: Math.ceil(clientsPerMonth / 30), unit: 'frascos' },
+                { name: '🧽 Removedor de Maquillaje', quantity: Math.ceil(clientsPerMonth / 20), unit: 'frascos' },
+                { name: '👁️ Parches de Gel', quantity: clientsPerMonth * 2, unit: 'pares' },
+                { name: '🖌️ Micro Cepillos', quantity: clientsPerMonth * 5, unit: 'piezas' },
+                { name: '🔧 Pinzas (reemplazo)', quantity: Math.ceil(clientsPerMonth / 50), unit: 'pares' }
+            ];
+            
+            const tableBody = document.getElementById('materialsTableBody');
+            tableBody.innerHTML = '';
+            
+            materials.forEach(material => {
+                const row = tableBody.insertRow();
+                row.innerHTML = `
+                    <td>${material.name}</td>
+                    <td>${material.quantity}</td>
+                    <td>${material.unit}</td>
+                `;
+            });
+            
+            document.getElementById('materialsResult').style.display = 'block';
+        }
+
+        // Establecer fecha actual por defecto cuando se carga la página
+        document.addEventListener('DOMContentLoaded', function() {
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('serviceDate').value = today;
+            console.log('Página cargada correctamente');
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'980d16bc31b01ea8',t:'MTc1ODE1OTEzOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
